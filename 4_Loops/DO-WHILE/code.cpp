@@ -1,7 +1,7 @@
 #include<iostream>
 using namespace std;
 
-int mani(){
+int main(){
     int i,n;
     cout<<"Enter first number: ";
     cin>>i;
@@ -9,7 +9,7 @@ int mani(){
     cin>>n;
 
     do{
-        cout<< i<< " ";
+        cout<< i<<endl;
         i++;
     }while(i<=n);
     return 0;
