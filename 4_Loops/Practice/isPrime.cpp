@@ -41,5 +41,6 @@ int main(){
     }else{
         cout<<"Non Prime no.";
     }
+
     return 0;
 }
