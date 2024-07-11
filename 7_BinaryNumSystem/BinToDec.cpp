@@ -4,7 +4,7 @@ using namespace std;
 void BinToDec(int binNum){
     int n = binNum;
     int decNum = 0;
-    int pow = 1;
+    int pow = 1; //2^0 2^1 2^2...
 
     while(n>0){
         int lastdigit = n%10;
@@ -12,7 +12,7 @@ void BinToDec(int binNum){
         pow*=2;
         n/=10;
     }
-    cout<<decNum<< endl;
+    cout<<"Decimal of "<<binNum<<" is " <<decNum<<"."<< endl;
 }
 
 
