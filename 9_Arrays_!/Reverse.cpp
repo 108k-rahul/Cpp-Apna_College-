@@ -2,8 +2,8 @@
 using namespace std;
 
 
-// Method1:-
-void printcopyArr(int *arr, int n){
+// Method1:- (Using extra space)
+/*void printcopyArr(int *arr, int n){
     for(int i=0; i<n; i++){
         cout<< arr[i]<<" ";
     }
@@ -28,4 +28,30 @@ int main(){
 
     return 0;
 }
+*/
 
+// Method 2:- (without using extra space :)
+int printArr(int *arr, int n){
+    for(int i=0; i<n; i++){
+        cout<<arr[i]<<" ";
+    }
+}
+
+int main(){
+    int arr[] = {5,4,3,9,2,1};
+    int n = sizeof(arr)/sizeof(int);
+
+    int start = 0, end = n-1;
+
+    while(start < end){
+        //swap
+        int temp = arr[start];
+        arr[start] = arr[end];
+        arr[end] = temp;
+
+        start++;
+        end--;
+    }
+    printArr(arr, n);
+    return 0;
+}
