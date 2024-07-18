@@ -22,7 +22,7 @@ int main(){
     int arr[] = {2,4,6,8,10,12,14,16};
     int n = sizeof(arr)/sizeof(int);
     int key = 12;
-
+    
     cout<< binarySearch(arr, n, key)<< endl;
     return 0;
 }
