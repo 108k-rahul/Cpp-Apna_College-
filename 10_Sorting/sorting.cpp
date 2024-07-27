@@ -1,4 +1,5 @@
 #include<iostream>
+#include<climits>
 using namespace std;
 
 void print(int *arr, int n){
@@ -24,6 +25,7 @@ void bubbleSort(int *arr, int n){
     }
     print(arr, n); // Ensure print is called after sorting
 }
+
 void selectionSort(int *arr, int n){
     for(int i=0; i<n; i++){
         int minIndx = i;
@@ -52,12 +54,39 @@ void insertionSort(int *arr, int n){
     print(arr,n);
 }
 
+void countSort(int arr[], int n) {
+    int maxVal = INT_MIN;
+    for(int i=0; i<n; i++) {
+        maxVal = max(maxVal, arr[i]);
+    }
+
+    int* freqArr = new int[maxVal + 1](); // Initialize frequency array with zeros
+
+    for(int i=0; i<n; i++) {
+        freqArr[arr[i]]++;
+    }
+
+    int index = 0;
+    for(int i=0; i<=maxVal; i++) {
+        while(freqArr[i] > 0) {
+            arr[index++] = i;
+            freqArr[i]--;
+        }
+    }
+
+    delete[] freqArr; // Free the allocated memory
+    print(arr, n);
+}
+
 int main(){
     int arr[5] = {5, 4, 1, 3, 2};
     int n = sizeof(arr)/sizeof(int);
-
     // bubbleSort(arr, n);
     // selectionSort(arr, n);
-    insertionSort(arr, n);
+    // insertionSort(arr, n);
+
+    int arr2[8] = {1, 4, 1, 3, 2, 4, 3, 7};
+    int n2 = sizeof(arr2)/sizeof(int);
+    countSort(arr2, n2);
     return 0;
 }
