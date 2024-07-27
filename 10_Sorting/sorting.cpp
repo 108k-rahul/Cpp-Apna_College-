@@ -1,5 +1,6 @@
 #include<iostream>
 #include<climits>
+#include<algorithm>
 using namespace std;
 
 void print(int *arr, int n){
@@ -78,6 +79,20 @@ void countSort(int arr[], int n) {
     print(arr, n);
 }
 
+//inbuilt Sort:
+void inbuilt(int *arr, int n){
+    //Increasing Order:
+    // sort(arr,arr+n);
+    // print(arr,n);
+
+    sort(arr+2,arr+5);
+    print(arr,n);
+
+    //Decreasing Order:
+    sort(arr,arr+n,greater<int>());
+    print(arr,n);
+}
+
 int main(){
     int arr[5] = {5, 4, 1, 3, 2};
     int n = sizeof(arr)/sizeof(int);
@@ -87,6 +102,8 @@ int main(){
 
     int arr2[8] = {1, 4, 1, 3, 2, 4, 3, 7};
     int n2 = sizeof(arr2)/sizeof(int);
-    countSort(arr2, n2);
+    // countSort(arr2, n2);
+
+    inbuilt(arr2,n2);
     return 0;
 }
