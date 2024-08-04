@@ -9,7 +9,6 @@ int main(){
     // cout<<(int)ch<<endl;
     // cout<<pos<<endl;
 
-
     // char work[] = {'c', 'o', 'd', 'e', '\0'};
     // // char work[4] = {'c', 'o', 'd', 'e', '\0'};
     // cout<<work<<endl;
