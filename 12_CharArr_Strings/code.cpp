@@ -23,6 +23,5 @@ int main(){
     cin.getline(sentence, 30, '*'); //will consider even after whitespace.
     cout<<"your sentence is: '"<<sentence<<"'"<<endl;
     cout<<"length is: "<<strlen(sentence)<<endl;
-
     return 0;
 }
