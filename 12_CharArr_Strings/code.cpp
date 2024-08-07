@@ -25,3 +25,34 @@ int main(){
     cout<<"length is: "<<strlen(sentence)<<endl;
     return 0;
 }
+
+
+// int main() {
+//     //C++ char arrays
+//     /*char word[20];
+//     cin.getline(word, 20);
+//     cout << "your word is : " << word << endl;*/
+    
+//     //<cstring> functions
+//     /*strcpy(word, "c++");
+//     cout << "now your word is : " << word << endl;
+
+//     strcat(word, " is my favorite");
+//     cout << word << endl;
+
+//     cout << strcmp("hello", "hello") << endl;
+//     cout << strcmp("abc", "xyz") << endl;*/
+
+//     //C++ Strings
+//     string str;
+//     getline(cin, str);
+//     cout << str << endl;
+
+//     //String Member Functions
+//     cout << str.length() << endl;
+//     cout << str.at(0) << endl;
+//     cout << str.substr(2, 3) << endl;
+//     cout << str.find("college") << endl;
+//     cout << str.find("xyz") << endl;
+//     return 0;    
+// }
