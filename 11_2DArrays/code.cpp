@@ -1,6 +1,5 @@
 #include<iostream>
 using namespace std;
-
 int main(){
     int arr[4][3];
     int n=4, m=3;
