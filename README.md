@@ -1,5 +1,7 @@
 # Cpp-Apna_College-
 
+<!-- symbolic link -->
+
 <!-- cd C:\shortpath -->
 
 <!-- g++ code.cpp
