@@ -8,6 +8,5 @@ int main(){
     cin >> size;
 
     int *arr = new int[size];
-    
     return 0;
 }
