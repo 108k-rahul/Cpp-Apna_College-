@@ -5,7 +5,8 @@ class Node{
 public:
     int data;
     Node* next;
-    Node(int val){
+
+    Node(int val){ //constructor
         data = val;
         next = NULL;
     }
@@ -42,6 +43,15 @@ public:
         }
     }
 
+    void printList(){
+        Node* temp = head;
+
+        while(temp != NULL){
+            cout<< temp->data<<" -> ";
+            temp = temp->next;
+        }
+        cout<<"NULL\n";
+    }
 };
 
 int main(){
@@ -50,5 +60,16 @@ int main(){
     ll.pushfront(3);
     ll.pushfront(2);
     ll.pushfront(1);
+    ll.printList();
+
+    ll.pushback(4);
+    ll.pushback(5);
+    ll.pushback(6);
+    ll.printList();
+
+    for(int i=7; i<=10; i++){
+        ll.pushback(i);
+    }
+    ll.printList();
     return 0;
 }
