@@ -24,5 +24,13 @@ int main(){
     int key = 12;
     
     cout<< binarySearch(arr, n, key)<< endl;
+
+    auto it = find(arr, arr+n, key);
+
+    if(it!= arr+1){
+        cout<<"array at index: "<<it-arr;
+    }else{
+        cout<<"nof found";
+    }
     return 0;
 }

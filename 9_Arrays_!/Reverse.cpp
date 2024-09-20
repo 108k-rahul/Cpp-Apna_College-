@@ -1,4 +1,4 @@
-#include<iostream>
+#include<bits/stdc++.h>
 using namespace std;
 
 
@@ -35,6 +35,7 @@ int printArr(int *arr, int n){
     for(int i=0; i<n; i++){
         cout<<arr[i]<<" ";
     }
+    cout<<endl;
 }
 
 int main(){
@@ -53,5 +54,8 @@ int main(){
         end--;
     }
     printArr(arr, n);
+
+    reverse(arr,arr+n);
+    printArr(arr,n);
     return 0;
 }

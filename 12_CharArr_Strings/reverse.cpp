@@ -1,8 +1,7 @@
-#include<iostream>
-#include <cstring>
+#include<bits/stdc++.h>
 using namespace std;
 
-void reverse(char word[], int n){
+void reversechar(char word[], int n){
     int start = 0, end = n-1;
     while(start < end){
         // swap(word[start], word[end]);
@@ -16,6 +15,10 @@ void reverse(char word[], int n){
 int main(){
     char word[] = {'c', 'o', 'd', 'e', '\0'};
     int n = strlen(word);
-    reverse(word,n);
+    reversechar(word,n);
+
+    reverse(word, word+n);
+
+    cout<<word<<endl;
     return 0;
 }

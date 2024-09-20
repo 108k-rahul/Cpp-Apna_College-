@@ -1,4 +1,4 @@
-#include<iostream>
+#include<bits/stdc++.h>
 using namespace std;
 
 void print(int *arr, int n){
@@ -13,6 +13,13 @@ void print(int *arr, int n){
 int main(){
     int arr[5] = {5,4,1,3,2};
     int n = sizeof(arr)/sizeof(int);
-    selectionSort(arr, n);
+    print(arr, n);
+
+    sort(arr,arr+n);
+    print(arr,n);
+
+
+    sort(arr,arr+n,greater<int>());
+    print(arr,n);
     return 0;
 }
