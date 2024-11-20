@@ -1,4 +1,4 @@
-#include <bits/stdc++.h>
+#include<bits/stdc++.h>
 using namespace std;
 
 class Node{
@@ -8,7 +8,7 @@ public:
     Node* right;
     Node(int data){
         this->data = data;
-        left=right=NULL;
+        left = right = NULL;
     }
 };
 
@@ -27,47 +27,43 @@ Node* buildTree(vector<int> nodes){
     return currNode;
 }
 
-void preorder(Node* root){ //root->left->right
+void preorder(Node* root){
     if(root == NULL){
         return;
     }
-    cout<<root->data<<" ";
+
+    cout<<(root->data)<<" ";
     preorder(root->left);
     preorder(root->right);
 }
 
-void inorder(Node* root){ //left->root->right
+int count(Node* root){
     if(root == NULL){
-        return;
+        return 0;
     }
-    inorder(root->left);
-    cout<<root->data<<" ";
-    inorder(root->right);
-}
 
-void postorder(Node* root){ //left->right->root
-    if(root == NULL){
-        return;
-    }
-    postorder(root->left);
-    postorder(root->right);
-    cout<<root->data<<" ";
+    int leftCount = count(root->left);
+    int rightCount = count(root->right);
+    
+    return leftCount+rightCount+1;
 }
 
 int main(){
     vector<int> nodes = {1,2,4,-1,-1,5,-1,-1,3,-1,6,-1,-1};
     Node* root = buildTree(nodes);
 
-    cout<<"preorder: ";
     preorder(root);
     cout<<endl;
+    cout<<"node count root: "<<count(root)<<endl;
 
-    cout<<"inorder: ";
-    inorder(root);
-    cout<<endl;
 
-    cout<<"postorder: ";
-    postorder(root);
+    Node* root2 = new Node(5);
+    root2->left = new Node(3);
+    root2->right = new Node(4);
+
+    preorder(root2);
     cout<<endl;
+    cout<<"node count root2: "<<count(root2)<<endl;
+
     return 0;
 }
