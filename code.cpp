@@ -4,68 +4,101 @@ using namespace std;
 class Node{
 public:
     int data;
-    Node* next;
-    Node(int val){
-        data = val;
-        next = NULL;
+    Node* left;
+    Node* right;
+    Node(int data){
+        this->data = data;
+        left = right = NULL;
     }
 };
-class List{
-    Node* head;
-    Node* tail;
-public:
-    List(){
-        head = tail = NULL;
+
+static int idx = -1;
+
+Node* buildTree(vector<int> nodes){
+    idx++;
+    if(nodes[idx] == -1){
+        return NULL;
     }
+    
+    Node* currNode = new Node(nodes[idx]);
+    currNode->left = buildTree(nodes);
+    currNode->right = buildTree(nodes);
+    
+    return currNode;
+}
 
-    void pushback(int val) {
-        Node* newnode = new Node(val);
-        if (head == NULL) {
-            head = tail = newnode;
-        } else {
-            tail->next = newnode;
-            tail = newnode;
-        }
+void preorder(Node* root){
+    if(root == NULL){
+        return;
     }
+    
+    cout<<root->data<<" ";
+    preorder(root->left);
+    preorder(root->right);
+}
 
-    void stllist(){
-        list<int> stllist;
-
-        Node* temp = head;
-        while(temp!=NULL){
-            stllist.push_back(temp->data);
-            temp = temp->next;
-        }
-
-        stllist.sort();
-
-        for(int val : stllist){
-            cout<<val<<" ";
-        }
-        cout<<endl;
-
-        auto it = stllist.end();
-        --it;
-        --it;
-        stllist.erase(it);
-
-        for(int val : stllist){
-            cout<<val<<" ";
-        }
-        cout<<endl;
+void inorder(Node* root){
+    if(root == NULL){
+        return;
     }
-};
+    
+    inorder(root->left);
+    cout<<root->data<<" ";
+    inorder(root->right);
+}
+
+void postorder(Node* root){
+    if(root == NULL){
+        return;
+    }
+    
+    postorder(root->left);
+    postorder(root->right);
+    cout<<root->data<<" ";
+}
 
 int main(){
-    List ll;
+    int choice;
+    Node* root = NULL;
     
-    int n = 5;
-    int values;
-    for(int i=0; i<n; i++){
-        cin>>values;
-        ll.pushback(values);
+    while(true){
+        cin>>choice;
+        if(choice == 1){
+            int n;
+            cin>>n;
+            vector<int> nodes(n);
+            for(int i; i<n; i++){
+                cin>>nodes[n];
+            }
+            root = buildTree(nodes);
+        }else if (choice == 2) {
+            cout << "Inorder: ";
+            inorder(root);
+            cout << endl;
+        } else if (choice == 3) {
+            cout << "Preorder: ";
+            preorder(root);
+            cout << endl;
+        } else if (choice == 4) {
+            cout << "Postorder: ";
+            postorder(root);
+            cout << endl;
+        } else if (choice == 5) {
+            break;
+        } else {
+            cout << "Invalid choice. Try again." << endl;
+        }
     }
-
-    ll.stllist();
+    
     return 0;
 }
+
+
+
+
+
+
+
+
+
+

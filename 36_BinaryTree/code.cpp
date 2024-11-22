@@ -1,22 +1,22 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-class Node{
+class Node {
 public:
     int data;
     Node* left;
     Node* right;
-    Node(int data){
+    Node(int data) {
         this->data = data;
-        left=right=NULL;
+        left = right = NULL;
     }
 };
 
 static int idx = -1;
 
-Node* buildTree(vector<int> nodes){
+Node* buildTree(vector<int>& nodes) {
     idx++;
-    if(nodes[idx] == -1){
+    if (idx >= nodes.size() || nodes[idx] == -1) {
         return NULL;
     }
 
@@ -27,47 +27,64 @@ Node* buildTree(vector<int> nodes){
     return currNode;
 }
 
-void preorder(Node* root){ //root->left->right
-    if(root == NULL){
+void inorder(Node* root) {
+    if (root == NULL) {
         return;
     }
-    cout<<root->data<<" ";
+    inorder(root->left);
+    cout << root->data << " ";
+    inorder(root->right);
+}
+
+void preorder(Node* root) {
+    if (root == NULL) {
+        return;
+    }
+    cout << root->data << " ";
     preorder(root->left);
     preorder(root->right);
 }
 
-void inorder(Node* root){ //left->root->right
-    if(root == NULL){
-        return;
-    }
-    inorder(root->left);
-    cout<<root->data<<" ";
-    inorder(root->right);
-}
-
-void postorder(Node* root){ //left->right->root
-    if(root == NULL){
+void postorder(Node* root) {
+    if (root == NULL) {
         return;
     }
     postorder(root->left);
     postorder(root->right);
-    cout<<root->data<<" ";
+    cout << root->data << " ";
 }
 
-int main(){
-    vector<int> nodes = {1,2,4,-1,-1,5,-1,-1,3,-1,6,-1,-1};
-    Node* root = buildTree(nodes);
-
-    cout<<"preorder: ";
-    preorder(root);
-    cout<<endl;
-
-    cout<<"inorder: ";
-    inorder(root);
-    cout<<endl;
-
-    cout<<"postorder: ";
-    postorder(root);
-    cout<<endl;
+int main() {
+    int choice;
+    Node* root = NULL;
+    
+    while (true) {
+        cin >> choice;
+        if (choice == 1) {
+            int n;
+            cin >> n;
+            vector<int> nodes(n);
+            for (int i = 0; i < n; i++) {
+                cin >> nodes[i];
+            }
+            root = buildTree(nodes);
+        } else if (choice == 2) {
+            cout << "Inorder: ";
+            inorder(root);
+            cout << endl;
+        } else if (choice == 3) {
+            cout << "Preorder: ";
+            preorder(root);
+            cout << endl;
+        } else if (choice == 4) {
+            cout << "Postorder: ";
+            postorder(root);
+            cout << endl;
+        } else if (choice == 5) {
+            break;
+        } else {
+            cout << "Invalid choice. Try again." << endl;
+        }
+    }
     return 0;
 }
