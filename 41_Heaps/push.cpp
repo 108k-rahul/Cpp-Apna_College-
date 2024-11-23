@@ -17,8 +17,35 @@ public:
         }
     }
 
-    void pop(int val){
+    void heapify(int i){
+        if(i > vec.size()){
+            return;
+        }
 
+        int left = 2*i+1;
+        int right = 2*i+2;
+        int max = i;
+
+        if(left < vec.size() && vec[left] > vec[max]){
+            max = left;
+        }
+
+        if(right < vec.size() && vec[right] > vec[max]){
+            max = right;
+        }
+
+
+        swap(vec[i],vec[max]);
+
+        heapify(max);
+    }
+
+    void pop(){
+        swap(vec[0], vec[vec.size()-1]);
+
+        vec.pop_back();
+
+        heapify(0);
     }
 
     int top(){
