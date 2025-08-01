@@ -68,8 +68,8 @@ public:
     
     void insert(int val, int position){
         Node* newnode = new Node(val);
-
         Node* temp = head;
+        
         for(int i=0; i<position-1; i++){
             temp = temp->next;
         }

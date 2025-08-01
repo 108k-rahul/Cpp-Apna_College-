@@ -21,7 +21,6 @@ public:
         if(i > vec.size()){
             return;
         }
-
         int left = 2*i+1;
         int right = 2*i+2;
         int max = i;
@@ -29,12 +28,9 @@ public:
         if(left < vec.size() && vec[left] > vec[max]){
             max = left;
         }
-
         if(right < vec.size() && vec[right] > vec[max]){
             max = right;
         }
-
-
         swap(vec[i],vec[max]);
 
         heapify(max);
@@ -42,9 +38,7 @@ public:
 
     void pop(){
         swap(vec[0], vec[vec.size()-1]);
-
         vec.pop_back();
-
         heapify(0);
     }
 
